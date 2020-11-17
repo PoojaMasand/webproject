@@ -19,6 +19,10 @@ class Auth {
         return await this._loginOrRegister(AuthApi.register, registrationData);
     }
 
+    async view() {
+        return await this._view(AuthApi.view);
+    }
+
     logout() {
         this.setLoggedIn(false);
         this._clearToken();
@@ -30,6 +34,20 @@ class Auth {
 
     getAuthorizationHeader() {
         return "Bearer "+this._getToken();
+    }
+
+    async _loginOrRegister(action, data) {
+        try {
+            const response = await action(data);
+            this._setToken(response.data.token);
+            this.setLoggedIn(true);
+            return true;
+        } catch (e) {
+            console.error(e);
+            
+            this.setLoggedIn(false);
+            return false;
+        }
     }
 
     async _loginOrRegister(action, data) {
