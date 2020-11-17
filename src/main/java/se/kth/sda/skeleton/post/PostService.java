@@ -15,4 +15,9 @@ public class PostService {
     {
         return repo.findAll();
     }
+
+    public Post create(Post newPost)
+    {
+        return repo.save(newPost);
+    }
 }

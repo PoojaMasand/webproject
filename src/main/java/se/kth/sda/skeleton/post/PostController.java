@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,11 +22,15 @@ public class PostController {
     private PostService service;
 
 
-    @PostMapping("/posts")
+    @GetMapping("/posts")
     public List<Post> viewAll() {
         return service.viewAll();
+    }
 
-
+    @PostMapping("/posts")
+    public Post create(@RequestBody Post newPost)
+    {
+        return service.create(newPost);
     }
 
 
