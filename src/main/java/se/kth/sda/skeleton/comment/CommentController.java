@@ -1,30 +1,26 @@
-package se.kth.sda.skeleton.post;
+package se.kth.sda.skeleton.comment;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.util.List;
 
 @RestController
-public class PostController {
-
+public class CommentController {
     @Autowired
-    private PostService service;
+    private CommentService commentService;
 
-
-    @GetMapping("/posts")
-    public List<Post> viewAll() {
-        return service.viewAll();
+    @GetMapping("/comments")
+    public List<Comment> viewAll() {
+        return commentService.viewAll();
     }
 
-    @PostMapping("/posts")
-    public Post create(@RequestBody Post newPost)
+    @PostMapping("/comments")
+    public Comment create(@RequestBody Comment newComment)
     {
-        return service.create(newPost);
+        return commentService.create(newComment);
     }
 }

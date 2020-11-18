@@ -44,7 +44,7 @@ function PostForm({onSubmit}) {
                         <button
                             className="btn btn-info"
                             onClick={() => onSubmit({textBody})}>
-                            Login
+                            Post
                         </button>
                     </div>
                 </div>
