@@ -9,15 +9,15 @@ class CommentsApi{
         return Api.get('/comments/'+id);
     }
 
-    createPost(post) {
-        return Api.post('/comments', post);
+    createComment(comment) {
+        return Api.post('/comments', comment);
     }
 
-    updatePost(post) {
-        return Api.put('/comments', post);
+    updateComment(comment) {
+        return Api.put('/comments', comment);
     }
 
-    deletePost(id) {
+    deleteComment(id) {
         return Api.delete('/comments/'+id);
     } 
 }

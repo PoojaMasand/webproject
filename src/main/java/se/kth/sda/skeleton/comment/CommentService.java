@@ -16,10 +16,7 @@ public class CommentService {
         return repo.findAll();
     }
 
-    public Comment create(Comment newPost)
-    {
-        return repo.save(newPost);
-    }
+    public Comment create(Comment newPost) { return repo.save(newPost); }
 
     public void delete(Long id) {
         repo.deleteById(id);
