@@ -5,7 +5,7 @@ function CommentCard(comments) {
 
 
     return (
-        <div className="card">
+        <div className="card mt-4">
             <div className="card-body">
 
                 <div>

@@ -23,12 +23,16 @@ function ChatPage() {
         .then((r) => {setComments([...comments, + r.data]);
         });
     };
+
+    const deleteComment = (comment) => {
+        return CommentsApi.deletePost()
+    }
     
 
     return (
         <div>
              <CommentForm onSubmit={createComment}/>
-             <div className="card">
+             <div className="mt-4">
                  <TrendingComments comments={comments}/>
              </div>
         </div>
