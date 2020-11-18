@@ -11,26 +11,45 @@ function ShowPost(posts) {
             .then(() => window.location.reload())
     }
 
+    <div className="card mt-4">
+        <div className="card-body">
+            {posts.post.textBody}
+
+            <div className="form-group">
+                <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete({posts})}>
+
+                    Delete
+                </button>
+
+            </div>
+
+
+
+
+        </div>
+    </div>
+
     return (
-        <div className="card mt-4">
+        <div className="card text-white  bg-info mb-3 mb-3 mt-4">
+            <div className="card-header">
+                Posted By : {posts.post.email}
+            </div>
             <div className="card-body">
-                {posts.post.textBody}
+                <h5 className="card-title">{posts.post.title}</h5>
+                <p className="card-text">{posts.post.textBody}</p>
+                <button
+                    className="btn btn-danger"
+                    onClick={() => handleDelete({posts})}>
 
-                <div className="form-group">
-                    <button
-                        className="btn btn-danger"
-                        onClick={() => handleDelete({posts})}>
-
-                        Delete
-                    </button>
-
-                </div>
-
-
-
+                    Delete
+                </button>
 
             </div>
         </div>
+
+
     );
 }
 
