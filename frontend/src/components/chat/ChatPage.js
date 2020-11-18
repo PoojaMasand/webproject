@@ -11,23 +11,24 @@ import TrendingComments from "./TrendingComments";
 function ChatPage() {
     const [comments, setComments] = useState([]);
     
-    useEffect(() => {
+    const getAll = () => {
         CommentsApi.getAllComments()
         .then((response) => 
             setComments(response.data))
+    };
+
+    useEffect(() => {
+      getAll();
         }, []);
 
   // call a REST API to show all the post .Depending on the no of post recieved ,populate the card div
         const createComment = (commentData) => {
         Api.post("/comments", commentData)
-        .then((r) => {setComments([...comments, + r.data]);
-        });
-    };
+        .then(() => window.location.reload());
+        };
+   
 
-    const deleteComment = (comment) => {
-        return CommentsApi.deletePost()
-    }
-    
+  
 
     return (
         <div>

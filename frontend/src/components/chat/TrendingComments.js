@@ -1,13 +1,13 @@
 import CommentCard from "./CommentCard"
 
-function TrendingComments({comments}) {
+function TrendingComments({comments, onCommentDelete}) {
 
     console.log("Inside Trending Comments" + comments)
 
     return (
     <div className="card mt-4">
             <h1>Trending Comments</h1>
-                    {comments.map((item) => <CommentCard key={comments.id} comment = {item}/>)}
+                    {comments.map((item) => <CommentCard key={comments.id} comment = {item} />)}
         </div>
 
     );
