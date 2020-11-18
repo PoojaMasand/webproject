@@ -14,17 +14,17 @@ import java.util.List;
 public class PostController {
 
     @Autowired
-    private PostService service;
+    private PostService postService;
 
 
     @GetMapping("/posts")
     public List<Post> viewAll() {
-        return service.viewAll();
+        return postService.viewAll();
     }
 
     @PostMapping("/posts")
     public Post create(@RequestBody Post newPost)
     {
-        return service.create(newPost);
+        return postService.create(newPost);
     }
 }
