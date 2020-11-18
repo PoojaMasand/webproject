@@ -5,26 +5,6 @@ import PostsApi from "../../api/PostsApi";
 function PostForm({onSubmit}) {
     const [textBody, setTextBody] = useState("");
 
-    const [information, setInformation] = useState([]);
-
-    const viewPosts = () => {
-
-        PostsApi.getAllPosts()
-            .then(response => {
-
-                setInformation(response.data);
-                })
-
-            }
-
-
-
-    useEffect(() => {
-        viewPosts();
-
-    }, []);
-
-
 
     return (
         <div className="card">
@@ -50,9 +30,7 @@ function PostForm({onSubmit}) {
                 </div>
             </div>
 
-            <div>
-                <TrendingPost information={information}/>
-            </div>
+
         </div>
 
 
