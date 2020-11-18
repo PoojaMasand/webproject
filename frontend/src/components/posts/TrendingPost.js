@@ -14,8 +14,6 @@ function TrendingPost(information) {
 
                     { information.information.map((item) => <ShowPost post={item}/>)}
 
-
-
                 </div>
 
     );

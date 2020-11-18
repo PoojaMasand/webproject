@@ -20,5 +20,9 @@ public class CommentService {
     {
         return repo.save(newPost);
     }
+
+    public void delete(Long id) {
+        repo.deleteById(id);
+    }
 }
 
