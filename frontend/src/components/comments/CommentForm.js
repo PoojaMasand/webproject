@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 
-function PostForm({onSubmit}) {
-    const [textBody, setTextBody] = useState("");
+function CommentForm({onSubmit}) {
+    const [body, setBody] = useState("");
 
 
     return (
         <div className="card">
             <div className="card-body">
-                <h4 className="card-title" >Add Post</h4>
+                <h4 className="card-title" >Add Comment</h4>
                 <div>
                     <div className="form-group">
                         <label>Body:</label>
@@ -15,8 +15,8 @@ function PostForm({onSubmit}) {
                             type="text"
                             className="form-control"
                             placeholder="..."
-                            value={textBody}
-                            onChange={e => setTextBody(e.target.value)} />
+                            value={body}
+                            onChange={e => setBody(e.target.value)} />
                     </div>
 
 
@@ -24,8 +24,8 @@ function PostForm({onSubmit}) {
                     <div className="form-group">
                         <button
                             className="btn btn-info"
-                            onClick={() => onSubmit({textBody})}>
-                            Post
+                            onClick={() => onSubmit({body})}>
+                            Comment
                         </button>
                     </div>
                 </div>
@@ -34,4 +34,4 @@ function PostForm({onSubmit}) {
     );
 }
 
-export default PostForm;
+export default CommentForm;

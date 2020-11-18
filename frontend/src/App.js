@@ -16,6 +16,7 @@ import LoginPage from "./components/auth/LoginPage";
 import HomePage from './components/home/HomePage';
 import PostsPage from "./components/posts/PostsPage";
 import ChatPage from './components/chat/ChatPage';
+import PostDetail from './components/posts/PostDetail';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
