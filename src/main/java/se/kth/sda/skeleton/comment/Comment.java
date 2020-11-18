@@ -11,8 +11,8 @@ public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-
-    String body;
+  String body;
+  String author;
 
 
     public Long getId() {
@@ -31,9 +31,18 @@ public class Comment {
         this.body = body;
     }
 
-    public Comment(Long id, String body) {
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public Comment(Long id, String body, String author) {
         this.id = id;
         this.body = body;
+        this.author=author;
     }
 
     public Comment() {

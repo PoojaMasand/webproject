@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 
 function PostForm({onSubmit}) {
     const [textBody, setTextBody] = useState("");
-
+    const [textBody1, setTextBody1] = useState("");
+   
 
     return (
         <div className="card">
@@ -10,13 +11,20 @@ function PostForm({onSubmit}) {
                 <h4 className="card-title" >Add Post</h4>
                 <div>
                     <div className="form-group">
-                        <label>Body:</label>
+                        <label>Recent Posts:</label>
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="..."
+                            placeholder="Post"
                             value={textBody}
                             onChange={e => setTextBody(e.target.value)} />
+                               <label>Trending Posts Body:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            placeholder="Post1"
+                            value={textBody1}
+                            onChange={e => setTextBody1(e.target.value)} />
                     </div>
 
 
@@ -24,7 +32,7 @@ function PostForm({onSubmit}) {
                     <div className="form-group">
                         <button
                             className="btn btn-info"
-                            onClick={() => onSubmit({textBody})}>
+                            onClick={() => onSubmit({textBody,textBody1})}>
                             Post
                         </button>
                     </div>
