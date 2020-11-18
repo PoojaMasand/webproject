@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from 'react';
-import TrendingPost from "./TrendingPost";
+
 import PostsApi from "../../api/PostsApi";
 
 function PostForm({onSubmit}) {

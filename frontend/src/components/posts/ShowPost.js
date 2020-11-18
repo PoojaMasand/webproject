@@ -1,19 +1,34 @@
 import React, {useState} from 'react';
+import PostsApi from "../../api/PostsApi";
 
 function ShowPost(posts) {
     console.log(posts);
+
+    const handleDelete = (postData) => {
+        console.log("inside handleDelete")
+        console.log(posts.post.id)
+        PostsApi.deletePost(posts.post.id)
+            .then(() => window.location.reload())
+    }
+
     return (
-        <div className="card">
+        <div className="card mt-4">
             <div className="card-body">
+                {posts.post.textBody}
 
-                <div>
-                    <div className="form-group">
+                <div className="form-group">
+                    <button
+                        className="btn btn-danger"
+                        onClick={() => handleDelete({posts})}>
 
-                        {posts.post.textBody}
-
-                    </div>
+                        Delete
+                    </button>
 
                 </div>
+
+
+
+
             </div>
         </div>
     );
