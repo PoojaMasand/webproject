@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from "react";
 import PostsApi from "../../api/PostsApi";
 import PostForm from "./PostForm";
-import ShowPost from "./ShowPost";
 import TrendingPost from "./TrendingPost";
+
+
 function PostsPage() {
     // call a REST API to show all the post .Depending on the no of post recieved ,populate the card div
 

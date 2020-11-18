@@ -2,12 +2,26 @@ import React from "react";
 import CommentForm from "../comments/CommentForm";
 import Api from "../../api/Api";
 import { useState, useEffect } from "react";
-import Auth from "../../services/Auth";
+
+import CommentsApi from "../../api/CommentsApi";
+import TrendingComments from "./TrendingComments";
+
+
 
 function ChatPage() {
-    const [items, setItems] = useState({});
+    const [comments, setComments] = useState([]);
+    
+    useEffect(() => {
+        CommentsApi.getAllComments()
+        .then((response) => 
+            setComments(response.data))
+        }, []);
+
+
+
+
     //Function used in implementation of 'fetch' call from API
-  useEffect(() => {
+  /*useEffect(() => {
     const headers = new Headers();
     headers.append("Authorization", Auth.getAuthorizationHeader())
 
@@ -21,22 +35,23 @@ function ChatPage() {
        response.json().then((items)=> console.log(items))
     })
     .catch((error)=> console.error(error))
-  }, []);
+  }, []);*/
   
+
+
   
     // call a REST API to show all the post .Depending on the no of post recieved ,populate the card div
-        const createPost = (postData) => {
-
-        Api.post("/comments", postData)
+        const createComment = (commentData) => {
+        Api.post("/comments", commentData)
         .then(r => console.log(r) )
-    }
+    };
     
 
     return (
         <div>
-             <CommentForm onSubmit={createPost}/>
+             <CommentForm onSubmit={createComment}/>
              <div className="card">
-                 Comments: 
+                 <TrendingComments comments={comments}/>
              </div>
         </div>
     );
