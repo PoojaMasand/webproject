@@ -1,4 +1,6 @@
-import React, {useState} from 'react';
+import React, {useEffect,useState} from 'react';
+import TrendingPost from "./TrendingPost";
+import PostsApi from "../../api/PostsApi";
 
 function PostForm({onSubmit}) {
     const [textBody, setTextBody] = useState("");
@@ -10,7 +12,7 @@ function PostForm({onSubmit}) {
                 <h4 className="card-title" >Add Post</h4>
                 <div>
                     <div className="form-group">
-                        <label>Body:</label>
+
                         <input
                             type="text"
                             className="form-control"
@@ -18,9 +20,6 @@ function PostForm({onSubmit}) {
                             value={textBody}
                             onChange={e => setTextBody(e.target.value)} />
                     </div>
-
-
-
                     <div className="form-group">
                         <button
                             className="btn btn-info"
@@ -30,7 +29,11 @@ function PostForm({onSubmit}) {
                     </div>
                 </div>
             </div>
+
+
         </div>
+
+
     );
 }
 
