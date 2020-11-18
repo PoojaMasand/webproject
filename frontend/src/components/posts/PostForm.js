@@ -23,7 +23,7 @@ function PostForm({onSubmit}) {
                         <textarea
                             type="text"
                             className="form-control"
-                            placeholder="..."
+                            placeholder="What's on your mind?"
                             value={textBody}
                             onChange={e => setTextBody(e.target.value)} />
                     </div>
