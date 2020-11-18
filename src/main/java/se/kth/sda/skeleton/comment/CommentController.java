@@ -21,7 +21,7 @@ public class CommentController {
         return commentService.create(newComment);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/comments/{id}")
     public void delete(@PathVariable Long id) {
         commentService.delete(id);
     }
