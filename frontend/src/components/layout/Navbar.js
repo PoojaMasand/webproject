@@ -1,10 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../assets/hot-air.png";
 
 function Navbar({ onLogout }) {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="/">Travell-Full</a>
+            <a className="navbar-brand" href="/"> 
+            Travell-Full</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>
@@ -24,7 +26,7 @@ function Navbar({ onLogout }) {
                     </li>
                 </ul>
 
-                <button className="btn btn-outline-info my-2 my-sm-0" onClick={onLogout}>Logout</button>
+                <button className="btn btn-outline-danger my-2 my-sm-0" onClick={onLogout}>Logout</button>
             </div>
         </nav>
     );

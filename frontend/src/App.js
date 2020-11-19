@@ -56,7 +56,7 @@ function App() {
 
                         <Route
                             path="/postdetails/:id"
-                        render={({match}) => <PostDetails match={match} />}
+                            render={({match}) => <PostDetails match={match} />}
                                 />
                         <Route path="/">
                           <HomePage/>

@@ -8,14 +8,14 @@ function PostForm({onSubmit}) {
 
 
     return (
-        <div className="card">
+        <div className="card text-light bg-dark mb-4">
             <div className="card-body">
-                <h4 className="card-title" >Add Post</h4>
+                <h3 className="card-title" >Add Post</h3>
                 <div>
                     <div className="form-group">
                         <input
                             type="text"
-                            className="form-control"
+                            className="form-control mb-2"
                             placeholder="Title"
                             value={title}
                             onChange={e => setTitle(e.target.value)} />
@@ -29,7 +29,7 @@ function PostForm({onSubmit}) {
                     </div>
                     <div className="form-group">
                         <button
-                            className="btn btn-info"
+                            className="btn btn-danger"
                             onClick={() => onSubmit({textBody,title})}>
                             Post
                         </button>

@@ -3,8 +3,6 @@ package se.kth.sda.skeleton.post;
 import se.kth.sda.skeleton.comment.Comment;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
 import java.util.List;
 
 @Entity
@@ -13,6 +11,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(columnDefinition = "TEXT")
     private String textBody;
 
     private String title;

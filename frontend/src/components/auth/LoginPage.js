@@ -31,7 +31,7 @@ function LoginPage() {
                 <div className="row mt-4">
                     <div className="col-md-6 " style={{ color: " #E74C3C" }}>
                         <h1>Travell-Full</h1>
-                        <p>Food worth moving for</p>
+                        <h5>Food worth moving for</h5>
                         <img classname= "loginImage"src={image} alt="Italian Trulli"></img>
                     </div>
 

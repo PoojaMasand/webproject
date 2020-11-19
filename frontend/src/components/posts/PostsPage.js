@@ -36,11 +36,9 @@ function PostsPage() {
         <div>
             <PostForm onSubmit={createPost}/>
 
-            <h1>Trending Posts</h1>
+            <h1>Trending Posts  <small class="text-muted">See what the forums been munching</small></h1>
 
             {information.map(item => (<ShowPost  key={item.id} post={item}/>))}
-
-
         </div>
     );
 
