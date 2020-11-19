@@ -2,8 +2,10 @@ package se.kth.sda.skeleton.post;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import se.kth.sda.skeleton.auth.AuthService;
+import org.springframework.web.server.ResponseStatusException;
+import se.kth.sda.skeleton.auth.*;
 
 
 import java.util.List;
@@ -21,6 +23,13 @@ public class PostController {
     @GetMapping("/posts")
     public List<Post> viewAll() {
         return postService.viewAll();
+    }
+
+    //get specific task by ID
+    @GetMapping("posts/{id}")
+    public Post getById(@PathVariable Long id){
+        return postService.getById(id)
+                .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/posts")

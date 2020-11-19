@@ -1,9 +1,6 @@
 package se.kth.sda.skeleton.comment;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import se.kth.sda.skeleton.post.Post;
+import javax.persistence.*;
 
 @Entity
 public class Comment {
@@ -13,6 +10,25 @@ public class Comment {
     Long id;
 
     String body;
+    private String email;
+
+
+    private Long postId;
+
+
+    public Comment() {
+    }
+
+    public Comment(Long id, String body, Long postId, String email) {
+        this.id = id;
+        this.body = body;
+        this.postId = postId;
+        this.email = email;
+    }
+
+    public Long getPostId() {
+        return postId;
+    }
 
 
     public Long getId() {
@@ -31,12 +47,15 @@ public class Comment {
         this.body = body;
     }
 
-    public Comment(Long id, String body) {
-        this.id = id;
-        this.body = body;
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
-    public Comment() {
+    public String getEmail() {
+        return email;
     }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }

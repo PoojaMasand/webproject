@@ -1,8 +1,11 @@
 package se.kth.sda.skeleton.post;
 
+import se.kth.sda.skeleton.comment.Comment;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -15,6 +18,9 @@ public class Post {
     private String title;
 
     private String email;
+
+    @OneToMany
+    private List<Comment> commentList;
 
     public String getEmail() {
         return email;
@@ -48,7 +54,15 @@ public class Post {
         this.textBody = textBody;
     }
 
-    public Post(Long id, String textBody,String title,String email) {
+    public List<Comment> getCommentList() {
+        return commentList;
+    }
+
+    public void setCommentList(List<Comment> commentList) {
+        this.commentList = commentList;
+    }
+
+    public Post(Long id, String textBody, String title, String email) {
         this.id = id;
         this.textBody = textBody;
         this.title = title;

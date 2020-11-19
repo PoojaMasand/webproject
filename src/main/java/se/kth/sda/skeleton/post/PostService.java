@@ -5,6 +5,7 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -24,6 +25,10 @@ public class PostService {
 
     public void delete(long id) {
         repo.deleteById(id);
+    }
+
+    public Optional<Post> getById(Long id) {
+        return repo.findById(id);
     }
 }
 
