@@ -7,8 +7,9 @@ import ShowPost from "./ShowPost";
 function PostsPage() {
     // call a REST API to show all the post .Depending on the no of post recieved ,populate the card div
     const [information, setInformation] = useState([]);
+    const [currentUser, setCurrentUser] = useState("");
 
-
+    
     const viewPosts = () => {
         PostsApi.getAllPosts()
             .then(response => {
@@ -18,6 +19,7 @@ function PostsPage() {
     }
     useEffect(() => {
         viewPosts();
+
 
     }, []);
 
@@ -36,7 +38,7 @@ function PostsPage() {
 
             <h1>Trending Posts</h1>
 
-            {information.map(item => (<ShowPost  key={item.id} post={item} />))}
+            {information.map(item => (<ShowPost  key={item.id} post={item} user={currentUser} />))}
 
 
         </div>
