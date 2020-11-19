@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
 import PostsApi from "../../api/PostsApi";
+import ChatPage from "../chat/PostDetails";
+import {Link} from "react-router-dom";
 
+
+//Function
 function ShowPost(posts) {
-    console.log(posts);
 
+    const { textBody, id, } = posts.post;
+    //const { textBody, id, } = posts;
+
+    //Delete method
     const handleDelete = (postData) => {
         console.log("inside handleDelete")
         console.log(posts.post.id)
@@ -11,10 +18,14 @@ function ShowPost(posts) {
             .then(() => window.location.reload())
     }
 
+    
     return (
+        <article>
+        <Link className="link" to={`/postdetails/${id}`}>
+
         <div className="card mt-4">
             <div className="card-body">
-                {posts.post.textBody}
+                text: {posts.post.textBody}
 
                 <div className="form-group">
                     <button
@@ -31,6 +42,8 @@ function ShowPost(posts) {
 
             </div>
         </div>
+        </Link>
+        </article>
     );
 }
 

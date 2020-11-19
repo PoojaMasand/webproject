@@ -2,13 +2,20 @@ import React from "react";
 import CommentForm from "../comments/CommentForm";
 import Api from "../../api/Api";
 import { useState, useEffect } from "react";
+import {useParams} from 'react-router-dom';
 
 import CommentsApi from "../../api/CommentsApi";
 import TrendingComments from "./TrendingComments";
 
 
 
-function ChatPage() {
+function ChatPage(posts) {
+console.log(posts)
+    const { postId } = useParams();   
+    const postdetails = posts.filter((post) => post.id.match(postId))[0];
+
+    const {textBody, id, email} = postdetails;
+
     const [comments, setComments] = useState([]);
     
     const getAll = () => {
@@ -26,9 +33,6 @@ function ChatPage() {
         Api.post("/comments", commentData)
         .then(() => window.location.reload());
         };
-   
-
-  
 
     return (
         <div>

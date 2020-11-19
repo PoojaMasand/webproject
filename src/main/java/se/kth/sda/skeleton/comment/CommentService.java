@@ -21,5 +21,7 @@ public class CommentService {
     public void delete(Long id) {
         repo.deleteById(id);
     }
+    public List<Comment> getAllByPostId(Long postId) { return repo.findAllByPostId(postId);
+    }
 }
 

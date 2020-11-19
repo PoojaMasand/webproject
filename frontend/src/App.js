@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,14 +15,33 @@ import Navbar from "./components/layout/Navbar";
 import LoginPage from "./components/auth/LoginPage";
 import HomePage from './components/home/HomePage';
 import PostsPage from "./components/posts/PostsPage";
-import ChatPage from './components/chat/ChatPage';
+import Postdetails from './components/chat/PostDetails';
+import PostsApi from './api/PostsApi';
 
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(Auth.isLoggedIn());
   Auth.bindLoggedInStateSetter(setLoggedIn);
   
+  const [information, setInformation] = useState([]);
+
+
+  const viewPosts = () => {
+      PostsApi.getAllPosts()
+          .then(response => {
+
+              setInformation(response.data);
+          })}
+ 
+          useEffect(() => {
+      viewPosts();
+
+  }, []);
+
+  console.log(information)
+
   const loggedInRouter = (
+
             <Router>
                 <Navbar onLogout={() => Auth.logout()} />
 
@@ -32,13 +51,15 @@ function App() {
                             <PostsPage/>
                         </Route>
 
-                        <Route path="/chat">
-                            <ChatPage/>
-                        </Route>
-
+                        <Route
+                            path="/postdetails/:id"
+                        render={() => <Postdetails items={information} />}
+                                items={information}/>
+                       
                         <Route path="/">
                           <HomePage/>
                         </Route>
+
                     </Switch>
                 </div>
             </Router>

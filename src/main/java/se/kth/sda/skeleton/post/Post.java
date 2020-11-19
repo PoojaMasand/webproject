@@ -1,9 +1,8 @@
 package se.kth.sda.skeleton.post;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
+import se.kth.sda.skeleton.comment.Comment;
 
 @Entity
 public class Post {
@@ -13,21 +12,10 @@ public class Post {
 
     String textBody;
 
+    @OneToMany
+    private List<Comment> comments;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getTextBody() {
-        return textBody;
-    }
-
-    public void setTextBody(String textBody) {
-        this.textBody = textBody;
+    public Post() {
     }
 
     public Post(Long id, String textBody) {
@@ -35,6 +23,31 @@ public class Post {
         this.textBody = textBody;
     }
 
-    public Post() {
+    public Long getId() {
+        return id;
     }
+
+    public String getTextBody() {
+        return textBody;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+
+    public void setTextBody(String textBody) {
+        this.textBody = textBody;
+    }
+
+
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
 }
