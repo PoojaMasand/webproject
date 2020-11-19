@@ -7,16 +7,17 @@ import {
 
 // Import custom styles for our application
 import './App.css';
+import './custom.css';
 
-import Auth from './services/Auth';
-import Navbar from "./components/layout/Navbar";
 
 // Import pages
 import LoginPage from "./components/auth/LoginPage";
 import HomePage from './components/home/HomePage';
 import PostsPage from "./components/posts/PostsPage";
-import PostDetails from './components/chat/PostDetails';
+import PostDetails from './components/comment/PostDetails';
 import PostsApi from './api/PostsApi';
+import Auth from './services/Auth';
+import Navbar from "./components/layout/Navbar";
 
 
 function App() {

@@ -1,11 +1,12 @@
 import React from "react";
-import CommentForm from "../comments/CommentForm";
+import CommentForm from "../comment/CommentForm";
 import Api from "../../api/Api";
 import { useState, useEffect } from "react";
 import {useParams} from 'react-router-dom';
 
 import CommentsApi from "../../api/CommentsApi";
 import TrendingComments from "./TrendingComments";
+import PostsApi from "../../api/PostsApi";
 
 
 
@@ -13,7 +14,7 @@ function PostDetails(match) {
 
     const [comments, setComments] = useState([]);
     const [postId, setPostId] = useState(match.match.params.id)
-    
+    const [post, setPost] = useState([])
     const getAll = () => {
         CommentsApi.getCommentByPostId(postId)
         .then((response) => 
@@ -22,7 +23,20 @@ function PostDetails(match) {
 
     useEffect(() => {
       getAll();
+      getPostById();
         }, []);
+
+    const getPostById = () => {
+        PostsApi.getPostById(postId)
+        .then((response) => 
+        {setPost(response.data)
+        console.log(response.data)})
+    };
+
+    console.log("test test test" + post.textBody)
+
+
+
 
   // call a REST API to show all the post .Depending on the no of post recieved ,populate the card div
         const createComment = (commentData) => {
@@ -31,9 +45,11 @@ function PostDetails(match) {
         .then(() => window.location.reload());
         };
         
-console.log("this is painful" + postId)
+
     return (
         <div>
+            <div>{post.textBody}</div>
+            
              <CommentForm postNum= {postId} onSubmit={createComment}/>
              <div className="mt-4">
                  <TrendingComments comments={comments}/>

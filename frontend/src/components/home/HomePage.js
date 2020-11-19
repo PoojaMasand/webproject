@@ -2,18 +2,23 @@ import React from "react";
 
 function HomePage() {
     return (
+        <div class="container">
+            <div class="row">
         <div className="card">
             <div className="card-body">
                 <h4 className="card-title">SDA starter template</h4>
-                <p>This starter template is based on Spring, PostgreSQL, React, React router and Axios. Check the following links for documentation and guides:</p>
-                <ul>
-                    <li><a href="https://spring.io/projects/spring-boot">Spring</a></li>
-                    <li><a href="https://www.postgresql.org">PostgreSQL</a></li>
-                    <li><a href="https://reactjs.org">React</a></li>
-                    <li><a href="https://reacttraining.com/react-router/web/guides/quick-start">React Router</a></li>
-                    <li><a href="https://github.com/axios/axios">Axios</a></li>
-                </ul>
+                <p>Travel-full is a place for people to share incredible food experiences 
+                    that they have had whilst on the road, at the beach or where ever else 
+                    you adventurous spirit may have taken you. Travel-full is dedicated to 
+                    providing a harassment-free and inclusive event experience for everyone 
+                    regardless of gender identity and expression, sexual orientation, disabilities,
+                    neurodiversity, physical appearance, body size, ethnicity, nationality, race, age, 
+                    religion, or other protected category. We do not tolerate harassment of 
+                    event participants in any form. Google takes violations of our policy 
+                    seriously and will respond appropriately.</p>
             </div>
+        </div>
+        </div>
         </div>
     );
 }
