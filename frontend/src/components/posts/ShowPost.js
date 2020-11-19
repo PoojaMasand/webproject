@@ -7,19 +7,21 @@ import {Link} from "react-router-dom";
 //Function
 function ShowPost(posts) {
 
-    const { textBody, id, } = posts.post;
+   const { textBody, id, } = posts.post;
     //const { textBody, id, } = posts;
 
     //Delete method
     const handleDelete = (postData) => {
         console.log("inside handleDelete")
-        console.log(posts.post.id)
+        console.log(id)
         PostsApi.deletePost(posts.post.id)
             .then(() => window.location.reload())
     }
 
     
     return (
+        <div>
+           
         <div className="card text-white  bg-info mb-3 mb-3 mt-4">
             <div className="card-header ">
                 Posted By : {posts.post.email}
@@ -36,12 +38,14 @@ function ShowPost(posts) {
                 <p className="card-text">{posts.post.textBody}</p>
 
             </div>
-
+            <Link className="link" to={`/postdetails/${id}`}>
             <div>
                 <button className="btn btn-info">Add Comment <i className='far fa-comment-dots'></i></button>
             </div>
+            </Link>
         </div>
-
+        
+        </div>
 
 
 

@@ -14,14 +14,11 @@ public class CommentController {
     @Autowired
     AuthService authService;
 
-    @GetMapping("/comments")
-    public List<Comment> viewAll( @RequestParam(required = false) Long postId) {
-        if (postId == null) {
-            return commentService.viewAll();
-        } else {
+    @GetMapping("/comments/{postId}")
+    public List<Comment> viewAll( @PathVariable Long postId) {
             return commentService.getAllByPostId(postId);
         }
-    }
+
         @PostMapping("/comments")
         public Comment create (@RequestBody Comment newComment)
         {

@@ -12,22 +12,22 @@ public class Comment {
     String body;
     private String email;
 
-    @ManyToOne
-    private Post post;
+
+    private Long postId;
 
 
     public Comment() {
     }
 
-    public Comment(Long id, String body, Post post, String email) {
+    public Comment(Long id, String body, Long postId, String email) {
         this.id = id;
         this.body = body;
-        this.post = post;
+        this.postId = postId;
         this.email = email;
     }
 
-    public Post getPost() {
-        return post;
+    public Long getPostId() {
+        return postId;
     }
 
 
@@ -46,8 +46,9 @@ public class Comment {
     public void setBody(String body) {
         this.body = body;
     }
-    public void setPost(Post post) {
-        this.post = post;
+
+    public void setPostId(Long postId) {
+        this.postId = postId;
     }
 
     public String getEmail() {

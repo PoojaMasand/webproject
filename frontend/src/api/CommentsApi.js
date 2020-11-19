@@ -5,7 +5,7 @@ class CommentsApi{
         return Api.get('/comments');
     }
 
-    getPostById(id) {
+    getCommentByPostId(id) {
         return Api.get('/comments/'+id);
     }
 

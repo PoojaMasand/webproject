@@ -1,8 +1,12 @@
 import React, {useState} from 'react';
 
-function CommentForm({onSubmit}) {
-    const [body, setBody] = useState("");
+function CommentForm({onSubmit, postNum}) {
 
+
+    const [body, setBody] = useState("");
+console.log('This is postId' + postNum)
+const [postId, setPostId] = useState(postNum);
+console.log("this is postnum" + postNum)
 
     return (
         <div className="card">
@@ -24,7 +28,7 @@ function CommentForm({onSubmit}) {
                     <div className="form-group">
                         <button
                             className="btn btn-info"
-                            onClick={() => onSubmit({body})}>
+                            onClick={() => onSubmit({body, postId})}>
                             Comment
                         </button>
                     </div>

@@ -15,7 +15,7 @@ import Navbar from "./components/layout/Navbar";
 import LoginPage from "./components/auth/LoginPage";
 import HomePage from './components/home/HomePage';
 import PostsPage from "./components/posts/PostsPage";
-import Postdetails from './components/chat/PostDetails';
+import PostDetails from './components/chat/PostDetails';
 import PostsApi from './api/PostsApi';
 
 
@@ -39,7 +39,9 @@ function App() {
   }, []);
 
   console.log(information)
-
+  //const data = information.json()
+ // const {id} = data;
+//console.log({id})
   const loggedInRouter = (
 
             <Router>
@@ -53,9 +55,8 @@ function App() {
 
                         <Route
                             path="/postdetails/:id"
-                        render={() => <Postdetails items={information} />}
-                                items={information}/>
-                       
+                        render={({match}) => <PostDetails match={match} />}
+                                />
                         <Route path="/">
                           <HomePage/>
                         </Route>
