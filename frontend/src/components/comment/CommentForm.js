@@ -11,12 +11,11 @@ console.log("this is postnum" + postNum)
 
 
     return (
-        <div className="card">
+        <div className="card mt-4">
             <div className="card-body">
-                <h4 className="card-title" >Add Comment</h4>
+                <h6 className="card-title" >Add Comment:</h6>
                 <div>
                     <div className="form-group">
-                        <label>Body:</label>
                         <input
                             type="text"
                             className="form-control"
@@ -29,7 +28,7 @@ console.log("this is postnum" + postNum)
 
                     <div className="form-group">
                         <button
-                            className="btn btn-info"
+                            className="btn btn-danger"
                             onClick={() => onSubmit({body, postId})}>
                             Comment
                         </button>

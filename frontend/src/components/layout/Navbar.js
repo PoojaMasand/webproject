@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/hot-air.png";
+import logo from "../assets/Tribal-Squigle.png";
 
 function Navbar({ onLogout }) {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="/"> 
+            <a className="navbar-brand" href="/"><img src={logo} alt="Logo"></img>
             Travell-Full</a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

@@ -28,18 +28,13 @@ function CommentCard(comments) {
     };
   
     return (
-        <div className="card mt-4">
-            <div className="card-body">
-                    <div className="form-group">
-                    <div className="card text-white  bg-info mb-3 mb-3 mt-4">
-                    <div className="card-header ">
+        <div className="card mt-4  bg-dark">
+                    <div className="card text-white bg-dark mb-3 mb-3 mt-4">
+                    {comments.comment.body}
+                    <div>
+                        <div>
                     Posted By : {comments.comment.email}
                     </div>
-                    body: {comments.comment.body}
-
-
-                    <div>
-
                         {currentUser === comments.comment.email ?
                         <button className="btn btn-danger mt-4" 
                         onClick={() => handleDelete({comments})}>
@@ -49,9 +44,9 @@ function CommentCard(comments) {
                         : null}
                     </div>
 
-                </div>
+                
             </div>
-        </div>
+        
         </div>
     );
 }
