@@ -1,13 +1,15 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import PostsApi from "../../api/PostsApi";
 import ChatPage from "../chat/PostDetails";
 import {Link} from "react-router-dom";
 
 
 //Function
-function ShowPost(posts) {
-
+function ShowPost(posts , {user}) {
+   console.log("In Show post" + {user});
    const { textBody, id, } = posts.post;
+   const [currentUser, setCurrentUser] = useState("");
+
     //const { textBody, id, } = posts;
 
     //Delete method
@@ -18,7 +20,18 @@ function ShowPost(posts) {
             .then(() => window.location.reload())
     }
 
-    
+    const getEmailOfUser = () => {
+        PostsApi.getCurrentUser()
+            .then(response => {
+                console.log("Email of the logged in user" + response.data.email)
+                setCurrentUser(response.data.email);
+            })
+    }
+
+    useEffect(() => {
+        getEmailOfUser();
+
+    }, []);
     return (
         <div>
            
@@ -26,12 +39,14 @@ function ShowPost(posts) {
             <div className="card-header ">
                 Posted By : {posts.post.email}
 
+                {currentUser === posts.post.email ?
                 <button
                     className=" float-right btn btn-light btn-sm"
                     onClick={() => handleDelete({posts})}>
 
                     Delete
                 </button>
+                    : null}
             </div>
             <div className="card-body">
                 <h5 className="card-title">{posts.post.title}</h5>

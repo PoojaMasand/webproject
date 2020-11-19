@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se.kth.sda.skeleton.auth.*;
+import se.kth.sda.skeleton.user.User;
+import se.kth.sda.skeleton.user.UserService;
 
 
 import java.util.List;
@@ -18,6 +20,9 @@ public class PostController {
 
     @Autowired
     AuthService authService;
+
+    @Autowired
+    UserService userService;
 
 
     @GetMapping("/posts")
@@ -43,7 +48,12 @@ public class PostController {
         return postService.create(newPost);
     }
 
+    @GetMapping("/currentUser")
+    public User getCurrentUser() {
+        String email = authService.getLoggedInUserEmail();
+        return userService.findUserByEmail(email);
 
+    }
     @DeleteMapping("/posts/{id}")
     public void delete(@PathVariable long id) {
         postService.delete(id);

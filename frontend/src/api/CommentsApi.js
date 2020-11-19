@@ -19,7 +19,9 @@ class CommentsApi{
 
     deleteComment(id) {
         return Api.delete('/comments/'+id);
-    } 
+    }
+
+
 }
 
 export default new CommentsApi();

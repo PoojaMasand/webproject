@@ -19,7 +19,11 @@ class PostsApi {
 
     deletePost(id) {
         return Api.delete('/posts/'+id);
-    } 
+    }
+
+    getCurrentUser() {
+        return Api.get('/currentUser');
+    }
 }
 
 export default new PostsApi();
