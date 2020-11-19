@@ -1,19 +1,36 @@
 package se.kth.sda.skeleton.post;
 
 import javax.persistence.*;
-import java.util.List;
-import se.kth.sda.skeleton.comment.Comment;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
-    String textBody;
+    private String textBody;
 
-    @OneToMany
-    private List<Comment> comments;
+    private String title;
+
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Post() {
     }
@@ -35,13 +52,15 @@ public class Post {
         return comments;
     }
 
-    public void setId(Long id) {
+    public Post(Long id, String textBody,String title,String email) {
         this.id = id;
     }
 
 
     public void setTextBody(String textBody) {
         this.textBody = textBody;
+        this.title = title;
+        this.email = email;
     }
 
 

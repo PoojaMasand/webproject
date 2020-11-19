@@ -3,6 +3,7 @@ package se.kth.sda.skeleton.post;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.web.bind.annotation.*;
+import se.kth.sda.skeleton.auth.AuthService;
 
 
 import java.util.List;
@@ -13,6 +14,9 @@ public class PostController {
     @Autowired
     private PostService postService;
 
+    @Autowired
+    AuthService authService;
+
 
     @GetMapping("/posts")
     public List<Post> viewAll() {
@@ -21,6 +25,12 @@ public class PostController {
 
     @PostMapping("/posts")
     public Post create(@RequestBody Post newPost) {
+        System.out.println(newPost);
+
+
+        System.out.println("User Email ************" + authService.getLoggedInUserEmail());
+
+        newPost.setEmail(authService.getLoggedInUserEmail());
         return postService.create(newPost);
     }
 

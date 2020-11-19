@@ -22,7 +22,7 @@ function PostsPage() {
     }, []);
 
     const createPost = (postData) => {
-
+        console.log("Data" + postData.textBody)
         PostsApi.createPost(postData)
             .then(res => setInformation([...information, res.data]));
     }

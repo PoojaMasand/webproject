@@ -20,30 +20,31 @@ function ShowPost(posts) {
 
     
     return (
-        <article>
-        <Link className="link" to={`/postdetails/${id}`}>
+        <div className="card text-white  bg-info mb-3 mb-3 mt-4">
+            <div className="card-header ">
+                Posted By : {posts.post.email}
 
-        <div className="card mt-4">
+                <button
+                    className=" float-right btn btn-light btn-sm"
+                    onClick={() => handleDelete({posts})}>
+
+                    Delete
+                </button>
+            </div>
             <div className="card-body">
-                text: {posts.post.textBody}
-
-                <div className="form-group">
-                    <button
-                        className="btn btn-danger"
-                        onClick={() => handleDelete({posts})}>
-
-                        Delete
-                    </button>
-
-                </div>
-
-
-
+                <h5 className="card-title">{posts.post.title}</h5>
+                <p className="card-text">{posts.post.textBody}</p>
 
             </div>
+
+            <div>
+                <button className="btn btn-info">Add Comment <i className='far fa-comment-dots'></i></button>
+            </div>
         </div>
-        </Link>
-        </article>
+
+
+
+
     );
 }
 

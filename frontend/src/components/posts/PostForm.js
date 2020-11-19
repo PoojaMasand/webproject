@@ -4,6 +4,7 @@ import PostsApi from "../../api/PostsApi";
 
 function PostForm({onSubmit}) {
     const [textBody, setTextBody] = useState("");
+    const [title, setTitle] = useState("");
 
 
     return (
@@ -12,18 +13,24 @@ function PostForm({onSubmit}) {
                 <h4 className="card-title" >Add Post</h4>
                 <div>
                     <div className="form-group">
-
                         <input
                             type="text"
                             className="form-control"
-                            placeholder="..."
+                            placeholder="Title"
+                            value={title}
+                            onChange={e => setTitle(e.target.value)} />
+
+                        <textarea
+                            type="text"
+                            className="form-control"
+                            placeholder="What's on your mind?"
                             value={textBody}
                             onChange={e => setTextBody(e.target.value)} />
                     </div>
                     <div className="form-group">
                         <button
                             className="btn btn-info"
-                            onClick={() => onSubmit({textBody})}>
+                            onClick={() => onSubmit({textBody,title})}>
                             Post
                         </button>
                     </div>
