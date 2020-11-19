@@ -6,9 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import se.kth.sda.skeleton.auth.*;
-import se.kth.sda.skeleton.user.User;
-import se.kth.sda.skeleton.user.UserService;
-
+import se.kth.sda.skeleton.user.*;
 
 import java.util.List;
 

@@ -6,7 +6,7 @@ function RegisterForm({onSubmit}) {
     const [password, setPassword] = useState("");
 
     return (
-        <div className="card">
+        <div className="card mb-4">
             <div className="card-body">
                 <h4 className="card-title">Sign up</h4>
                 <div>
@@ -42,7 +42,7 @@ function RegisterForm({onSubmit}) {
 
                     <div className="form-group">
                         <button 
-                            className="btn btn-success"
+                            className="btn btn-danger"
                             onClick={e => onSubmit({name, email, password})}>
                             Create account
                         </button>

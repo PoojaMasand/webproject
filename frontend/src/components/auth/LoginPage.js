@@ -1,7 +1,14 @@
 import React from "react";
+
+
+
 import Auth from "../../services/Auth";
 import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
+
+//media
+import image from "../assets/hot-air.png";
+import "../../custom.css";
 
 function LoginPage() {
     const login = async (loginData) => {
@@ -22,9 +29,10 @@ function LoginPage() {
         <div className="wrapper">
             <div className="container">
                 <div className="row mt-4">
-                    <div className="col-md-6 " style={{ color: "white" }}>
-                        <h1>SDA</h1>
-                        <p>Starter template</p>
+                    <div className="col-md-6 " style={{ color: " #E74C3C" }}>
+                        <h1>Travell-Full</h1>
+                        <p>Food worth moving for</p>
+                        <img classname= "loginImage"src={image} alt="Italian Trulli"></img>
                     </div>
 
                     <div className="col-md-6">

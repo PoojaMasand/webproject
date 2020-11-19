@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import PostsApi from "../../api/PostsApi";
-import ChatPage from "../chat/PostDetails";
+import ChatPage from "../comment/PostDetails";
 import {Link} from "react-router-dom";
 
 
