@@ -21,6 +21,10 @@ class CommentsApi{
         return Api.delete('/comments/'+id);
     }
 
+    getCurrentUser() {
+        return Api.get('/currentUser');
+    }
+
 
 }
 

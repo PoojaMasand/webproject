@@ -9,7 +9,7 @@ function PostsPage() {
     const [information, setInformation] = useState([]);
     const [currentUser, setCurrentUser] = useState("");
 
-    
+
     const viewPosts = () => {
         PostsApi.getAllPosts()
             .then(response => {
@@ -38,7 +38,7 @@ function PostsPage() {
 
             <h1>Trending Posts</h1>
 
-            {information.map(item => (<ShowPost  key={item.id} post={item} user={currentUser} />))}
+            {information.map(item => (<ShowPost  key={item.id} post={item}/>))}
 
 
         </div>

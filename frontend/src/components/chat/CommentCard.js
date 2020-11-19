@@ -1,9 +1,24 @@
-import React from 'react';
+import React, {useState,useEffect} from 'react';
 import CommentsApi from "../../api/CommentsApi";
+import PostsApi from "../../api/PostsApi";
+
 
 
 function CommentCard(comments) {
+    const [currentUser, setCurrentUser] = useState("");
 
+    useEffect(() => {
+        getEmailOfUser();
+
+    }, []);
+
+    const getEmailOfUser = () => {
+        CommentsApi.getCurrentUser()
+            .then(response => {
+                console.log("Email of the logged in user" + response.data.email)
+                setCurrentUser(response.data.email);
+            })
+    }
 
     const handleDelete = (commentData) => {
         console.log("inside handleDelete")
@@ -21,12 +36,19 @@ function CommentCard(comments) {
                     Posted By : {comments.comment.email}
                     </div>
                     body: {comments.comment.body}
+
+
                     <div>
+
+                        {currentUser === comments.comment.email ?
                         <button className="btn btn-danger mt-4" 
                         onClick={() => handleDelete({comments})}>
                             Delete
                         </button>
+
+                        : null}
                     </div>
+
                 </div>
             </div>
         </div>

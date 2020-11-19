@@ -8,6 +8,8 @@ console.log('This is postId' + postNum)
 const [postId, setPostId] = useState(postNum);
 console.log("this is postnum" + postNum)
 
+
+
     return (
         <div className="card">
             <div className="card-body">
