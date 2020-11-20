@@ -14,7 +14,7 @@ function HomePage() {
            
         <div className="card bg-dark mb-4">
             <div className="card-body">
-                <h3 className="card-title text-center text-light">Community Guidlines</h3>
+                <h3 className="card-title text-center text-light">Community Guidelines</h3>
                 <p>Travel-full is a place for people to share incredible food experiences 
                     that they have had whilst on the road, at the beach or where ever else 
                     you adventurous spirit may have taken you. Travel-full is dedicated to 
