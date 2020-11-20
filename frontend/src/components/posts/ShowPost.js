@@ -36,17 +36,15 @@ function ShowPost(posts , {user}) {
         <div>
            
         <div className="container">
+       
             <Jumbotron>
-            
-            <div className="card-body">
-                <h4 className="text-center mb-4">{posts.post.title}</h4>
-                <p className="text-center">{posts.post.textBody}</p>
-
-            </div>
             <Link className="link" to={`/postdetails/${id}`}>
-            <div>
-                <button className="btn btn-outline-light">Add Comment <i className='far fa-comment-dots'></i></button>
+            <div className="card-body text-dark">
+                <h4 className="text-center mb-4">{posts.post.title}</h4>
+            
             </div>
+            
+            
             </Link>
             <div className="card-header">
                 Posted By : {posts.post.email}
@@ -60,6 +58,7 @@ function ShowPost(posts , {user}) {
                     : null}
             </div>
             </Jumbotron>
+            
         </div>
         
         </div>
